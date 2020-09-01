@@ -1,9 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { AppContext } from '../context/AppContext'
+
+import { useRecoilState } from 'recoil'
+import { navOpenRecoil } from '../context/AppAtoms'
 
 const Menu = () => {
-  const context = useContext(AppContext)
+  const [navOpen, toggleSidenav] = useRecoilState(navOpenRecoil)
+
   return (
     <ul>
       <li className='link'>
@@ -16,11 +19,11 @@ const Menu = () => {
         <span className='k-icon k-i-menu'
           onKeyPress={event => {
             if (event.key === 'Enter') {
-              context.toggleSidenav(!context.navOpen)
+              toggleSidenav(!navOpen)
             }
           }}
           onClick={() => {
-            context.toggleSidenav(!context.navOpen)
+            toggleSidenav(!navOpen)
           }}
         ></span>
       </li>

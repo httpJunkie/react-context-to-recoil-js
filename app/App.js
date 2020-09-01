@@ -1,17 +1,17 @@
 import React from 'react'
+import { RecoilRoot } from 'recoil'
 
 import 'normalize.css'
 import '@progress/kendo-theme-material/dist/all.css'
 import './App.scss'
 
-import { AppProvider } from './context/AppContext'
 import Frame from './Frame'
 
 const App = () => {
   return(
-    <AppProvider>
+    <RecoilRoot>
       <Frame />
-    </AppProvider>
+    </RecoilRoot>
   )
 }
 
