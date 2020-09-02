@@ -10,9 +10,7 @@ const Foot = () => {
   const isLight = theme === 'light'
   const dateString = new Date().getFullYear()
 
-  const handleThemeSwitch = () => {
-    changeTheme(isLight ? 'dark' : 'light')
-  }
+  const handleThemeSwitch = () => changeTheme(isLight ? 'dark' : 'light')
 
   return (
     <Row>

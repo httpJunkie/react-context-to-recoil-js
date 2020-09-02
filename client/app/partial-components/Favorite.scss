@@ -1,0 +1,35 @@
+li.favorite { 
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+
+  .k-icon.k-i-check-outline {
+    margin-top: -0.25em;
+    font-size: 2em;
+    color: gainsboro;
+  }
+  .k-icon.k-i-check-circle {
+    margin-top: -0.25em;
+    font-size: 2em;
+    color: greenyellow;
+  }
+  .k-icon.k-i-cancel {
+    margin-top: -0.25em;
+    font-size: 2em;
+    color: red;
+  }
+
+  .name {
+    width: 60%;
+    padding-right: 8px;
+  }
+  .booked {
+    width: 40%;
+    text-align: right;
+    padding-right: 8px;
+  }
+}
+
+li.favorite:first-child { 
+  border-bottom: 1px solid rgb(125, 125, 125);
+}

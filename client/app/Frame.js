@@ -1,10 +1,9 @@
-import React, { useContext, lazy, Suspense } from 'react'
-import { AppContext } from './context/AppContext'
+import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { useMediaPredicate } from 'react-media-hook'
 
 const Home = lazy(() => import('./view-components/Home'))
-const About = lazy(() => import('./view-components/About'))
+const Hotels = lazy(() => import('./view-components/Hotels'))
 const LoadingMessage = () => `loading...`
 
 import Logo from './partial-components/Logo'
@@ -16,8 +15,10 @@ import { useThemeInitializer } from './context/useThemeInitializer'
 
 const Frame = () => {
   const { theme } = useThemeInitializer()
+
   const isMedium = useMediaPredicate('(min-width: 860px)')
   const breakpoint = isMedium ? 'medium' : 'small'
+  
   return (
     <BrowserRouter>
       <div className={`app-container ${breakpoint} ${theme}`}>
@@ -30,8 +31,8 @@ const Frame = () => {
             <Switch>
               <Suspense fallback={<LoadingMessage />}>
                 <Route exact path='/' component={Home} />
-                <Route exact path='/About' render={(props) => 
-                  <About {...props} theme={theme} />
+                <Route exact path='/hotels' render={(props) => 
+                  <Hotels {...props} theme={theme} />
                 }/>
               </Suspense>
               <Route render={() => <h2>404 Page Not Found</h2>} />

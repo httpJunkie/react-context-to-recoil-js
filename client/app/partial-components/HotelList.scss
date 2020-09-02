@@ -1,0 +1,42 @@
+.hotel-list ul {
+  list-style-type: none;
+  margin: 0.5em 0 0.5em 0;
+  padding-inline-start: 0;
+
+  li.hotel { 
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+
+    border-right: 1px solid rgb(125, 125, 125);
+
+    .k-icon.k-i-star, .k-icon.k-i-star-outline {
+      margin-top: -0.25em;
+      font-size: 2em;
+      color: greenyellow
+    }
+
+    .name {
+      width: 50%;
+      padding-right: 8px;
+    }
+    .city {
+      width: 20%;
+      text-align: center;
+      padding-right: 8px;
+    }
+    .vacancy {
+      width: 15%;
+      text-align: center;
+      padding-right: 8px;
+    }
+    .icon {
+      width: 15%;
+      text-align: center;
+      padding-right: 8px;
+    }
+  }
+  li.hotel:first-child {
+    border-bottom: 1px solid rgb(125, 125, 125);
+  }
+}
