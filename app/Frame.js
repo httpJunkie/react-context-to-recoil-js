@@ -1,5 +1,4 @@
-import React, { useContext, lazy, Suspense } from 'react'
-import { AppContext } from './context/AppContext'
+import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { useMediaPredicate } from 'react-media-hook'
 
