@@ -2,6 +2,16 @@
 
 Resources and links associated with my talk on Recoil JS.
 
+## Run this branch
+
+Install Couchbase [single node, preferably with Docker](https://docs.couchbase.com/server/current/install/getting-started-docker.html) and install the `travel-sample` Sample Bucket. You may need to change the `server/server.js` file to add the database user and password that you choose during setup.
+
+Once your database is running:
+
+```
+npm i && npm start
+```
+
 ## Docs, Recoil Repo and React Europe Announcement
 
 - [RecoilJS.org Intro Tutorial](https://recoiljs.org/docs/basic-tutorial/intro)
