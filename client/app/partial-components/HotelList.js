@@ -26,7 +26,7 @@ const HotelList = ({ hotelList }) => {
     useRecoilCallback(fn, deps) is similar to useCallback(fn, deps) 
     it provides an API to work with/update recoil state (async capable)
     { set, snapshot, gotoSnapshot, reset}
-    we pass addIdToListAndCreateFavorite addFavAnndLikToFavoriteListIds callback function in and return a function 
+    we pass addIdToListAndCreateFavorite() callback function in and return a function 
     signature of our insertFavorite is the same as our returned function addIdToListAndCreateFavorite addFavAnndLikToFavoriteListIds
   */
 
