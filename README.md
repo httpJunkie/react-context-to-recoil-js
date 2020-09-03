@@ -2,6 +2,12 @@
 
 Resources and links associated with my talk on Recoil JS.
 
+## Run this branch
+
+```
+npm i && npm start
+```
+
 ## Docs, Recoil Repo and React Europe Announcement
 
 - [RecoilJS.org Intro Tutorial](https://recoiljs.org/docs/basic-tutorial/intro)
