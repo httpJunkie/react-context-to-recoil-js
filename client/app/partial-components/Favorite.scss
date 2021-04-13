@@ -22,6 +22,9 @@ li.favorite {
   .name {
     width: 60%;
     padding-right: 8px;
+    a {
+      color: white;
+    }
   }
   .booked {
     width: 40%;

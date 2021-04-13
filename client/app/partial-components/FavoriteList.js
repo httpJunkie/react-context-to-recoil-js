@@ -11,7 +11,7 @@ export const favoriteListIds = atom({
 
 const FavoriteList = () => {
   const favoriteIds = useRecoilValue(favoriteListIds)
-  const listItems = favoriteIds.map(id => <Favorite id={id}/>)
+  const listItems = favoriteIds.map(id => <Favorite id={id} key={id}/>)
 
   return (
     <div className={'favorite-list'}>

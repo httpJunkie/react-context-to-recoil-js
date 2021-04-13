@@ -7,15 +7,15 @@ const couchbase = require('couchbase')
 // create app, connect to server
 const app = express()
 app.use(cors())
-const cluster = new couchbase.Cluster('couchbase://localhost', 
-  { username: 'Administrator', password: 'password' }
-)
+const credentials = { username: 'Administrator', password: 'password' }
+const cluster = new couchbase.Cluster('couchbase://localhost', credentials)
 const bucket = cluster.bucket('travel-sample')
 const collection = bucket.defaultCollection();
 
 const schema = buildSchema(`
   type Query {
-    hotelsMalibu: [Hotel]
+    hotelsMalibu: [Hotel],
+    hotelByKey(id: Int!): Hotel
   }
   type Hotel {
     id: Int,
@@ -39,6 +39,10 @@ const root = {
   hotelsMalibu: async () => {
     const result = await cluster.query(hotelsMalibuQuery)
     return result.rows
+  },
+  hotelByKey: async ({id}) => {
+    const result = await collection.get(`airline_${id}`)
+    return result.value
   }
 }
 

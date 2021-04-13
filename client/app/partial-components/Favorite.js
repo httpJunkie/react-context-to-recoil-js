@@ -17,7 +17,13 @@ const Favorite = ({ id }) => {
 
   return (
     <li className="favorite">
-      <div className="name">{name}</div>
+      <div className="name">
+        <a href="#" onClick={()=>{
+          console.log("Refresh Vacancy")
+        }}>
+          {name}
+        </a>
+      </div>
       <div className="booked">
         <span 
           className={`k-icon ${
