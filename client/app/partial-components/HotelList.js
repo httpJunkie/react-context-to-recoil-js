@@ -10,9 +10,9 @@ const HotelList = ({ hotelList }) => {
   const favoriteIds = useRecoilValue(favoriteListIds)
 
   const addIdToListAndCreateFavorite = ({ set }) => {
-    return (name, vacancy, id) => {
+    return (name, id) => {
       set(favoriteListIds, [...favoriteIds, id])
-      set(favoriteById(id), { name, vacancy, booked: false })
+      set(favoriteById(id), { name, booked: false })
     }
   }
   /*
@@ -35,7 +35,7 @@ const HotelList = ({ hotelList }) => {
 
   const listItems = hotelList.map(({ name, city, vacancy, id }) => (
     <li className="hotel" key={`${name}-${id}`}>
-      <div className="name">{name}</div>
+      <div className="name">{name}-{id}</div>
       <div className="city">{city}</div>
       <div className="vacancy">{vacancy ? "Yes" : "No"}</div>
       <div className="icon">
@@ -48,7 +48,7 @@ const HotelList = ({ hotelList }) => {
 
           onClick={() => {
             if (!favoriteIds.includes(id)) {
-              insertFavorite(name, vacancy, id)
+              insertFavorite(name, id)
             }
           }}
         ></span>

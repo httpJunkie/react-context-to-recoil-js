@@ -1,10 +1,10 @@
 import React from 'react'
-import ApolloClient from 'apollo-boost'
-import { ApolloProvider } from '@apollo/react-hooks'
+import { ApolloProvider, InMemoryCache, ApolloClient } from '@apollo/client';
 
 const withApolloProvider = (WrappedComponent, graphqlEndpoint) => {
   const apolloClient = new ApolloClient({
     uri: graphqlEndpoint,
+    cache: new InMemoryCache()
   })
 
   return (props) => (

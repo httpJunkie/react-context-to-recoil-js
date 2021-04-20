@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Column, Row } from "simple-flexbox"
 
 import './Hotels.scss'
@@ -7,26 +6,16 @@ import './Hotels.scss'
 import HotelList from '../partial-components/HotelList'
 import FavoriteList from '../partial-components/FavoriteList'
 
-import { useQuery } from '@apollo/react-hooks'
-import { gql } from 'apollo-boost'
+import { useQuery } from '@apollo/client'
+import { hotelsGql } from './hotels-gql'
 import withApolloProvider from '../hoc/withApolloProvider'
-
-const hotelsGql = gql`{
-  hotelsMalibu {
-    id
-    name
-    city
-    vacancy
-    type
-  }
-}`
 
 const Hotels = () => {
   document.title = `Hotel List`
 
   const { loading, error, data } = useQuery(hotelsGql)
-  if (loading ) return <p>Loading...</p> 
-  if (error ) return <p>Error... <span style={{color: 'red'}}>{error.message}</span></p> 
+  if (loading) return <p>Loading...</p> 
+  if (error) return <p>Error... <span style={{color: 'red'}}>{error.message}</span></p> 
 
   const hotelList  = data.hotelsMalibu
 

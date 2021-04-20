@@ -21,8 +21,7 @@ const schema = buildSchema(`
     id: Int,
     name: String,
     city: String,
-    vacancy: Boolean,
-    type: String
+    vacancy: Boolean
   }
 `)
 
@@ -41,7 +40,7 @@ const root = {
     return result.rows
   },
   hotelByKey: async ({id}) => {
-    const result = await collection.get(`airline_${id}`)
+    const result = await collection.get(`hotel_${id}`)
     return result.value
   }
 }

@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { atom, useRecoilValue } from 'recoil'
 import './FavoriteList.scss'
+
+const LoadingMessage = () => `loading...`
 
 import Favorite from './Favorite'
 
@@ -11,7 +13,7 @@ export const favoriteListIds = atom({
 
 const FavoriteList = () => {
   const favoriteIds = useRecoilValue(favoriteListIds)
-  const listItems = favoriteIds.map(id => <Favorite id={id} key={id}/>)
+  const listItems = favoriteIds.map(id => <Favorite id={id} key={`favorite_${id}`} />)
 
   return (
     <div className={'favorite-list'}>
@@ -20,7 +22,9 @@ const FavoriteList = () => {
           <div className="name">Favorites List</div>
           <div className="booked">Is Booked?</div>
         </li>
-        {listItems}
+        <Suspense fallback={<LoadingMessage />} >
+          {listItems}
+        </Suspense>
       </ul>
     </div>
   )

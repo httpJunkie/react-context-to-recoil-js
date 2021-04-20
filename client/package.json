@@ -9,7 +9,10 @@
       "@babel/preset-react"
     ],
     "plugins": [
-      "@babel/plugin-proposal-class-properties"
+      "@babel/plugin-proposal-class-properties",
+      [
+        "@babel/plugin-transform-runtime", { "regenerator": true }
+      ]
     ]
   },
   "scripts": {
@@ -24,6 +27,7 @@
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.13.15",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "babel-eslint": "^10.1.0",
@@ -44,6 +48,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.14",
     "@apollo/react-hooks": "^4.0.0",
     "@progress/kendo-drawing": "^1.9.0",
     "@progress/kendo-react-buttons": "^3.16.0",
@@ -60,7 +65,7 @@
     "react-dom": "^16.13.1",
     "react-media-hook": "^0.4.7",
     "react-router-dom": "^5.2.0",
-    "recoil": "0.0.10",
+    "recoil": "0.2.0",
     "simple-flexbox": "^2.3.2"
   }
 }
