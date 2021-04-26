@@ -11,16 +11,20 @@ export const favoriteById = atomFamily({
   }
 })
 
+const getVacancy = (hotelId) => {
+  return fetch('http://localhost:4000/graphql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query: `query getHotelByKey($id: Int!) {hotelByKey(id:$id) {vacancy}}`,
+    variables: { id: hotelId }
+  }),
+  }).then(res => res.json())
+}
+
 const hotelVacancy = selectorFamily({
   key: 'hotelVacancy',
   get: (hotelId) => async () => {
-    const result = await fetch('http://localhost:4000/graphql', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query: `query getHotelByKey($id: Int!) {hotelByKey(id:$id) {vacancy}}`,
-      variables: { id: hotelId }
-    }),
-    }).then(res => res.json())
+    const result = await getVacancy(hotelId)
     return result.data.hotelByKey.vacancy
   }
 })
@@ -32,9 +36,7 @@ const Favorite = ({ id }) => {
   return (
     <li className="favorite">
       <div className="name">
-        <a href="#" onClick={() => console.log("Refresh Vacancy")}>
-          {name}
-        </a>
+        {name}
       </div>
       <div className="booked">
         <span

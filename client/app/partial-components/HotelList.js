@@ -45,7 +45,6 @@ const HotelList = ({ hotelList }) => {
               ? 'k-i-star'
               : 'k-i-star-outline'}
           `}
-
           onClick={() => {
             if (!favoriteIds.includes(id)) {
               insertFavorite(name, id)
